@@ -13,6 +13,8 @@ function Logar(props) {
 function OkEntao(props) {
     const estaLogado = props.estaLogado;
 
+    // Alocando um valor numa variável.
+    // É o mesmo que if(props.estaLogado)
     if (estaLogado) {
         return <Logado />
     }
@@ -55,6 +57,8 @@ function Mail(props) {
 //================================
 // No caso para que quando seja falso, o compoente se esconda
 function Aviso(props) {
+    // Criando um parametro warn que será esperado pelo Component
+    // na hora de renderizar
     if (!props.warn) {
         return null;
     }
@@ -69,7 +73,7 @@ function Aviso(props) {
 // =============================
     // É importante dizer que mesmo quando se retorna null de um Component no render
     // não irá afetar o lifecycle de component do React.
-    // Os métodos compponentWillSupdate e componentDidUpdate continuarão sendo chamados
+    // Os métodos compponentWillupdate e componentDidUpdate continuarão sendo chamados
 // ==============================
 
 class ConditionalRender extends React.Component {
@@ -82,10 +86,13 @@ class ConditionalRender extends React.Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
 
         // estabelecendo o state do botão ao iniciar a aplicação
-        this.state = { estaLogado: false };
+        // this.state = { estaLogado: false };
 
         // estabelecendo um state para o aviso e dando bind na function nova
-        this.state = { aviso: true };
+        this.state = { 
+            estaLogado: false,
+            aviso: true };
+
         this.handleClickforAviso = this.handleClickforAviso.bind(this);
     }
 
@@ -108,9 +115,10 @@ class ConditionalRender extends React.Component {
         // Ao renderizar, a variável abaixo irá guardar o valor de que
         // o objeto que o state espera estará true 
         const estaLogado = this.state.estaLogado;
+        console.log(this.state);
 
         // E a variável button está guardando uma condição
-        // Se estiver o objeto estaLogado estiver true, então ele renderiza 
+        // Se estiver o objeto estaLogado true, então ele renderiza 
         // o Component LogoutButton se não ele renderuiza o LoginButton
         // Ou seja, a renderização nesse caso é condicional
         const button = estaLogado ? (

@@ -6,7 +6,11 @@ import './App.css';
 // import StatesAndLifecycle from './statesAndlifecycle';
 // import HandleEvents from './handleEvents';
 // import ConditionalRender from './conditionalRender';
-import ListsAndKeys from './listsandKeys';
+// import ListsAndKeys from './listsandKeys';
+// import Formulario from './forms';
+// import LiftStateUp from './liftstate';
+// import CalculadoraTemp from './calculadoraTemp';
+import CompVSInherit from './compVSinherit';
 
 // import Button from './button';
 
@@ -27,7 +31,14 @@ class App extends Component {
 
       {/* <ConditionalRender /> */}
 
-      <ListsAndKeys />
+      {/* <ListsAndKeys /> */}
+
+      {/* <Formulario /> */}
+
+      {/* <LiftStateUp /> */}
+      {/* <CalculadoraTemp /> */}
+
+      <CompVSInherit />
 
       {/* <Button /> */}
       </div>

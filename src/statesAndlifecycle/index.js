@@ -31,19 +31,19 @@ class StatesandLifecycle extends React.Component {
     // Nesse caso nós queremos setar um time sempre que a nossa Class renderizar
     // pela primeira vez. Isso se chama 'mounting'
 
-    // Também queremos limpar o tempo sempre que o DOM for removido, ou seja,
-    // quando ele MSFIDOSignatureAssertion. Isso se chama 'unmounting'
+    // Também queremos limpar o tempo sempre que o DOM for removido.
+    // Isso se chama 'unmounting'
 
     // Sendo assim, nós declaramos uns métodos especiais nos components que
     // se chamam lifecycle hooks
     componentDidMount() {
-        // Esse método run depois que o componente foi renderizado
+        // Esse método roda depois que o componente foi renderizado
         // Portanto:
         this.timerID = setInterval(
             () => this.ticktack(),
             1000
         );
-        // Estamos salvando o time no this
+        // Estamos salvando o time no this da função ticktack que está mais abaixo
 
         // enquanto que o this.props é setado pelo próprio React e o this.state
         // tem um comportamento único, estamos livres para criar campos adicionais

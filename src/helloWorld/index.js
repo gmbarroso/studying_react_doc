@@ -39,6 +39,7 @@ const element = (
         <h1>Hello</h1>
         <h2>Good to see you here, {someone.firstName}!</h2>
         <p>{ticktack()}</p>
+        {/* <p>{boasvindas()}</p> */}
         <p>{boasvindas(someone)}</p>
     </div>
 )

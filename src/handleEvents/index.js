@@ -16,13 +16,14 @@ class HandleEvents extends React.Component {
         // Quando temos uma função, é necessário dar um bind nele
         // Esse bind é necessário para fazer o 'this' funcionar no callback
         this.handleClick = this.handleClick.bind(this);
+        this.outroClick = this.outroClick.bind(this);
     }
 
     handleClick() {
-        console.log('funciono')
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn
         }));
+        console.log(this.state)
     }
 
     outroClick = () => {
@@ -38,6 +39,7 @@ class HandleEvents extends React.Component {
         return (
             <div>
                 <p>
+                    {/* Colocando o # para não recarregar a páfgina */}
                     <a href="#" onClick={this.handleClick}>
                         Click me
                     </a>

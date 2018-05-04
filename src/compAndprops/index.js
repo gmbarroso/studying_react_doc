@@ -39,6 +39,7 @@ function formatDate(date) {
     return date.toLocaleDateString();
 }
 
+// Component
 function Avatar(props) {
     return (
         <img className={styles.imagem}
@@ -60,7 +61,6 @@ function UserInfo(props) {
     )
 }
 
-// Component
 function Comments(props) {
     // O props signisifca que ele espera alguma coisa
     return (
