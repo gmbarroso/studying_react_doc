@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.css'
+// import styles from './styles.css';
 
 // Aqui trabalharemos com Composition vs Inheritance
 // PQ trabalhar com Composition model para reutilizar o código entre os Components
@@ -17,28 +17,74 @@ import styles from './styles.css'
 
 function Borda(props) {
     return (
-        <div className={'Borda Borda-' + props.color}>
-            {props.children}
-        </div>
-    )
-}
+      <div className={'Borda Borda-' + props.color}>
+        {props.children}
+      </div>
+    );
+  }
 
-class CompVSInherit extends React.Component {
-    render() {
-        return(
-            // Tudo que estiver dentro da tag Borda passa pelo Component borda como
-            // filho pelo this.props. Já que o Comp Borda renderiza {props.children}
-            // dentro da div, os parametros passados aparecem no output final
-            <Borda color="blue">
-                <h1 className="Dialog-title">
-                    teste
-                </h1>
-                <p className="Dialog-message">
-                    teste
-                </p>
-            </Borda>
-        )
+// Seguindo
+// function PainelSplitado(props) {
+//     return (
+//         <div className="SplitPane">
+//             <div className="SplitPane-left">
+//                 {props.left}
+//             </div>
+//             <div className="SplitPane-right">
+//                 {props.right}
+//             </div>
+//         </div>
+//     );
+// }
+
+// Especialização
+function Dialog(props) {
+    return (
+      <Borda color="blue">
+        <h1 className="Dialog-title">
+          {props.title}
+        </h1>
+        <p className="Dialog-message">
+          {props.message}
+        </p>
+        {props.children}
+      </Borda>
+    );
+  }
+
+  class CompVSInherit extends React.Component {
+    constructor(props) {
+      super(props);
+      this.controlaMudanca = this.controlaMudanca.bind(this);
+      this.controlaEntrada = this.controlaEntrada.bind(this);
+      this.state = {login: ''};
     }
-}
+  
+    render() {
+      return (
+        <Dialog title="Mars Exploration Program"
+                message="How should we refer to you?">
+          <input value={this.state.login}
+                 onChange={this.controlaMudanca} />
+          <button onClick={this.controlaEntrada}>
+            Sign Me Up!
+          </button>
+        </Dialog>
+      );
+    }
+  
+    controlaMudanca(x) {
+      this.setState({login: x.target.value});
+    }
+  
+    controlaEntrada() {
+      alert(`Welcome aboard, ${this.state.login}!`);
+    }
+  }
 
 export default CompVSInherit
+
+
+  
+
+  
